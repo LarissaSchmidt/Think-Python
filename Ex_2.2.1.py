@@ -24,6 +24,3 @@ while True:
             print('Esse não é um valor válido de unidades')
     except Exception:
         print('\nVocê precisa digitar um número válido.')
-
-    
-    

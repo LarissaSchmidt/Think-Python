@@ -12,5 +12,3 @@ while True:
         exit()
     except Exception:
         print('\nDigite apenas números!')
-    
-    

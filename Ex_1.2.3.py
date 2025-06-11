@@ -54,6 +54,4 @@ while True:
                     print('\nDigite uma resposta válida.')
             break  
         else:
-            print('\nDigite uma resposta válida.')                
-
-
+            print('\nDigite uma resposta válida.')
