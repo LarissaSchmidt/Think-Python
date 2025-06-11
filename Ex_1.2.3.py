@@ -18,8 +18,8 @@ while True:
             print('\nNa sua corrida você fez um tempo total de:', tempo_total_segundos, 'segundos')
             break
 
-        except ValueError:
-            print('\nDigite apenas números!')
+        except Exception:
+            print(f'\nErro tipo: {Exception} Digite apenas números!')
 
     print ('\nLegal, você correu muito!')
 
@@ -30,8 +30,8 @@ while True:
             print('\nVocê correu:', resultado_milhas, 'milhas')
             break
 
-        except ValueError:
-            print('\nDigite apenas números!')
+        except Exception:
+            print(f'\nErro tipo: {Exception} Digite apenas números!')
     
     print ('\nVamos descobrir qual o seu passo médio nessa corrida.')
     
@@ -54,8 +54,6 @@ while True:
                     print('\nDigite uma resposta válida.')
             break  
         else:
-            print('\nDigite uma resposta válida.')  
-    
-                
+            print('\nDigite uma resposta válida.')                
 
 
