@@ -6,25 +6,45 @@
 **Glossário:**
 ```
 int – número inteiro (ex: 1, 42, -7)
+
 float – número decimal ou quebrado (ex: 3.14, -0.5)
+
 str – string, sequência de caracteres ou texto (ex: 'olá', 'python')
+
 print – função que exibe algo na tela
+
 input – função que recebe uma entrada do usuário
+
 bug – erro ou falha no código
+
 debugging – processo de encontrar e corrigir bugs
+
 operator – símbolo que realiza uma operação (ex: +, -, *, /)
+
 expression – combinação de valores e operadores que Python pode avaliar (ex: 2 + 3)
+
 statement – instrução completa que o Python executa (ex: print("oi"))
+
 variable – nome que armazena um valor (ex: x = 5)
+
 assignment – ação de atribuir um valor a uma variável (ex: x = 10)
+
 value – dado armazenado ou manipulado pelo programa (ex: 42, "texto")
+
 type – tipo de dado (ex: int, float, str)
+
 syntax – conjunto de regras para escrever o código corretamente
+
 comment – texto no código ignorado pelo Python, usado para explicações (# isso é um comentário)
+
 function – bloco de código reutilizável que realiza uma tarefa (ex: print())
+
 parameter – valor passado para uma função
+
 return – valor que uma função devolve após executar
+
 prompt – mensagem exibida para o usuário durante a entrada de dados (ex: input('Digite seu nome: '))
+
 ^ – operador bitwise XOR (exclusive or) que compara bits (não muito usado no começo, mas aparece)
 ```
 
@@ -191,7 +211,111 @@ while True:
             print('\nDigite uma resposta válida.')                
 ```
 
-# ddikkdk
+# Capítulo 2: Variáveis, expressões e instruções
 
+**Glossário:**
+```
+Variável – nome usado para guardar um valor (como uma “caixinha”). Não pode começar com número, nem conter espaço, acento, ou símbolos especiais. Também não pode ter nomes que sejam palavras reservadas do Python (ex: if, while).
 
+Atribuição – quando damos um valor a uma variável, usando o = (ex: x = 5).
+
+Expressão – qualquer coisa que tenha um valor: pode ser um número, operação matemática, ou combinação (ex: 2 + 3, "oi" + " mundo").
+
+Operador – símbolo que faz uma operação (ex: +, -, *, /).
+
+Concatenação de strings – juntar textos com o operador + (ex: "bom" + "dia" vira "bomdia").
+
+Repetição de strings – usar * com strings para repetir (ex: "la" * 3 vira "lalala").
+
+Ordem dos parênteses – parênteses mudam a ordem dos cálculos, assim como na matemática (ex: (2 + 3) * 4 ≠ 2 + (3 * 4)).
+
+Comentário (#) – texto ignorado pelo Python; usado para anotar ou explicar o código.
+
+Sintaxe – regras da linguagem Python. Se você quebrar essas regras (como esquecer : ou escrever algo fora do lugar), aparece um erro de sintaxe.
+
+Erro de tempo de execução (runtime error) – erro que acontece enquanto o programa está rodando. Exemplo: tentar dividir por zero.
+
+Erro semântico (semantic error) – quando o programa roda sem erro, mas faz a coisa errada (a lógica está errada).
+
+Exception (exceção) – tipo especial de erro que pode ser tratado para evitar que o programa quebre. Exemplo: tentar converter texto em número e falhar.
+```
+
+> **Exercício 2.1**
+
+No Python a variável que guarda uma informação não pode ser numérica, quando estamos fazendo ```n = 42``` estamos dizendo ao programa *n* recebe *42*. Podemos atribuir um mesmo valor para variáveis de nome diferentes como ```x = y = 1```.
+
+```ruby
+#42 = n da erro, número não guarda informação, não pode ser uma variável que recebe info
+n = 42
+print(n)
+
+#Podemos atribuir um mesmo valor para variáveis de nome diferentes
+x = y = 1
+print(x)
+print(y)
+print(x+y)
+```
+*Resultado* 
+```
+42
+1
+1
+2
+```
+
+Apesar de ser possível utilizar o ; para separar variáveis, idealmente utiliza-se uma nova linha para cada informação adicionada. O ; só é usado se você quiser escrever duas instruções na mesma linha. Já o ponto não deve ser utilizado, pois ele é utilizado em Python para acessar partes de algo, como deixar todas as letras de um input em caixa alta.
+
+```ruby
+#x = 5; y = 10 pode ser utilizado, mas usualmente usamos a separação em linhas
+x = 5
+y = 10
+print(x+y)
+
+#Exemplo de utilização de .upper()
+nome = input('Qual o seu nome? ')
+nome_maiusculo = nome.upper()
+print(f'Olá {nome_maiusculo}!')
+
+#Para multiplicar algo você precisa utilizar o operador *, sem ele o programa identificara xy como variável
+print(x*y)
+```
+*Resultado* 
+```
+15
+Input do usuário --> Olá INPUT DO USUÁRIO!
+50
+```
+
+> **Exercício 2.2**
+
+skskjdjd
+
+```ruby
+frete_fixo = 3
+frete_adicional = 0.75
+
+while True:
+    try:
+        preco_livro = float(input('Qual o preço do livro? R$'))
+        desconto = float(input('Quantos % de desconto a livraria ganha nessa compra? (ex: 20 para 20%) '))
+        quantidade_atacado = int(input('Quantas unidades serão pedidas? '))
+        
+        porcentagem = float(desconto)/100
+        preco_com_desconto = (preco_livro * quantidade_atacado) * porcentagem
+        frete_total = frete_fixo + ((quantidade_atacado - 1) * frete_adicional)
+        custo_total = frete_total + preco_com_desconto
+
+        if quantidade_atacado > 1:
+            print(f'\nSabemos que o valor do frete é R${frete_fixo} mais R${frete_adicional} por exemplar. O frete total para essa compra é R${frete_total}')
+            print(f'\nO custo total dessa compra é R${custo_total}')
+            break
+        elif quantidade_atacado == 1:
+            print(f'O valor total do frete é R${frete_fixo}')
+            print(f'O valor total da compra é R${preco_livro+frete_fixo}')
+            break
+        else:
+            print('Esse não é um valor válido de unidades')
+    except Exception:
+        print('\nVocê precisa digitar um número válido.')
+```
 
