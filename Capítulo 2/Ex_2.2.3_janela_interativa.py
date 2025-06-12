@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime, timedelta
+from PIL import Image, ImageTk
 
 def calcular_chegada():
     try:
@@ -24,8 +25,13 @@ def calcular_chegada():
 
 
 janela = tk.Tk()
-
 janela.title('Vou chegar para o café da manhã?')
+
+imagem = Image.open(r'C:\Users\Usuario\Downloads\Think Python\cat.jpg')  
+imagem = imagem.resize((300, 200))     
+imagem_tk = ImageTk.PhotoImage(imagem)
+label_imagem = tk.Label(janela, image=imagem_tk)
+label_imagem.pack()
 
 tk.Label(janela, text = 'Hora de Saída (HH:MM): ').pack()
 entrada_hora_saida = tk.Entry(janela)
