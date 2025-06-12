@@ -23,14 +23,13 @@ def calcular_chegada():
     except Exception:
         messagebox.showerror('Erro', 'Por favor, preencha todos os campos corretamente!')
 
-
 janela = tk.Tk()
 janela.title('Vou chegar para o café da manhã?')
 
 imagem = Image.open(r'C:\Users\Usuario\Downloads\Think Python\cat.jpg')  
 imagem = imagem.resize((300, 200))     
 imagem_tk = ImageTk.PhotoImage(imagem)
-label_imagem = tk.Label(janela, image=imagem_tk)
+label_imagem = tk.Label(janela, image = imagem_tk)
 label_imagem.pack()
 
 tk.Label(janela, text = 'Hora de Saída (HH:MM): ').pack()
@@ -44,16 +43,4 @@ entrada_duracao.pack()
 botao = tk.Button(janela, text = 'Calcular', command = calcular_chegada)
 botao.pack()
 
-
-
-
-
-
-
-
-
-
-
-
 janela.mainloop()
-
