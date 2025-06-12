@@ -8,7 +8,7 @@ while True:
         quantidade_atacado = int(input('Quantas unidades serão pedidas? '))
         
         porcentagem = float(desconto)/100
-        preco_com_desconto = (preco_livro * quantidade_atacado) * porcentagem
+        preco_com_desconto = (preco_livro * quantidade_atacado) * (1 - porcentagem)
         frete_total = frete_fixo + ((quantidade_atacado - 1) * frete_adicional)
         custo_total = frete_total + preco_com_desconto
 
