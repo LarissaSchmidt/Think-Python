@@ -202,8 +202,99 @@ Para fechar a função ```try``` adicionamos um ```except``` que também contar�
  except ValueError as ve:
         messagebox.showerror('Erro de entrada', f'Entrada inválida, tipo: {ve}')
 ```
-
-Finalizamos a parte de definir a função e podemos passar para a parte da interface gráfica. 
-
-
 ![image](https://github.com/user-attachments/assets/a7e3c025-eb6d-48a6-b4af-66e578316b07)
+
+Finalizamos a etapa de definição da função e agora podemos avançar para a construção da interface gráfica. Por uma questão de capricho, decidi adicionar uma imagem à janela, tornando a interface mais amigável. Para isso, foi necessário importar uma biblioteca capaz de manipular imagens.
+
+```ruby
+from PIL import Image, ImageTk
+```
+
+Com ela podemos selecionar o caminho da imagem e adicionar isso ao nosso programa. A função ```Image.open('')``` abre o arquivo de imagem no caminho especificado em *''*, a letra *r* indica que é uma *raw string* e isso é necessário para que o programa possa ignorar os caracteres especiais como a contra barra *\*.
+
+```ruby
+imagem = Image.open(r'C:\Users\Usuario\Downloads\Think Python\cat.jpg')  
+imagem = imagem.resize((300, 200))     
+imagem_tk = ImageTk.PhotoImage(imagem)
+label_imagem = tk.Label(janela, image=imagem_tk)
+label_imagem.pack()
+```
+A função ```.resize((300, 200))``` redimensiona a imagem para 300pixels de largura e 200 de altura, por exemplo. Esses valores podem ser ajustados conforme necessário para evitar distorções na imagem.
+
+Em seguida, a função ```ImageTk.PhotoImage(imagem)``` converte a imagem no formato ```PIL``` para um formato compatível com o ```tkinter```, que aceita apenas imagens nos formatos ```PhotoImage``` ou ```BitmapImage```. Para exibir a imagem na interface, criamos um rótulo (label) e o associamos à imagem convertida. Isso é feito com a instrução ```label_imagem = tk.Label(janela, image = imagem_tk)```. Por fim, utilizamos o método ```.pack()``` para inserir o rótulo na janela, garantindo que a imagem apareça no layout da interface.
+
+![image](https://github.com/user-attachments/assets/0d51e442-030a-4ff1-92ee-4cacf9fa76e8)
+
+Criamos um rótulo com o texto ```'Hora de Saída (HH:MM):'``` utilizando ```tk.Label```, que é inserido na janela com o método ```.pack()```. Logo abaixo, adicionamos um campo de entrada com ```tk.Entry(janela)``` para que o usuário possa digitar o horário desejado, também posicionado com ```.pack()```.
+
+Em seguida, repetimos o mesmo processo para solicitar a duração da viagem. Criamos um novo rótulo com o texto ```'Duração da Viagem (HH:MM)'``` e um novo campo de entrada logo abaixo para que o usuário insira esse valor.
+
+Por fim, adicionamos um botão com o texto ```'Calcular'``` utilizando ```tk.Button```. Esse botão é vinculado à função ```calcular_chegada``` por meio do parâmetro ```command```, ao ser clicado ele executará essa função. O botão também é posicionado na interface com o método ```.pack()```.
+
+```ruby
+tk.Label(janela, text = 'Hora de Saída (HH:MM): ').pack()
+entrada_hora_saida = tk.Entry(janela)
+entrada_hora_saida.pack()
+
+tk.Label(janela, text = 'Duração da Viagem (HH:MM)').pack()
+entrada_duracao = tk.Entry(janela)
+entrada_duracao.pack()
+
+botao = tk.Button(janela, text = 'Calcular', command = calcular_chegada)
+botao.pack()
+```
+
+![image](https://github.com/user-attachments/assets/f69a797d-8e0c-42b5-9225-5c786ef19361)
+
+Até agora temos esse código:
+
+```ruby
+import tkinter as tk
+from tkinter import messagebox
+from datetime import datetime, timedelta
+from PIL import Image, ImageTk
+
+def calcular_chegada():
+    try:
+        hora_saida_str = entrada_hora_saida.get()
+        hora_saida = datetime.strptime(hora_saida_str, '%H:%M')
+
+        duracao_str = entrada_duracao.get()
+        horas, minutos = map(int, duracao_str.split(':'))
+        duracao = timedelta(hours=horas, minutes=minutos)
+
+        hora_chegada = hora_saida + duracao
+        hora_chegada_str = hora_chegada.strftime("%H:%M")
+
+        messagebox.showinfo('Hora de Chegada', f'Você chegará às {hora_chegada_str}.')
+
+    except ValueError as ve:
+        messagebox.showerror('Erro de entrada', f'Entrada inválida, tipo: {ve}')
+
+    except Exception:
+        messagebox.showerror('Erro', 'Por favor, preencha todos os campos corretamente!')
+
+janela = tk.Tk()
+janela.title('Vou chegar para o café da manhã?')
+
+imagem = Image.open(r'C:\Users\Usuario\Downloads\Think Python\cat.jpg')  
+imagem = imagem.resize((300, 200))     
+imagem_tk = ImageTk.PhotoImage(imagem)
+label_imagem = tk.Label(janela, image = imagem_tk)
+label_imagem.pack()
+
+tk.Label(janela, text = 'Hora de Saída (HH:MM): ').pack()
+entrada_hora_saida = tk.Entry(janela)
+entrada_hora_saida.pack()
+
+tk.Label(janela, text = 'Duração da Viagem (HH:MM)').pack()
+entrada_duracao = tk.Entry(janela)
+entrada_duracao.pack()
+
+botao = tk.Button(janela, text = 'Calcular', command = calcular_chegada)
+botao.pack()
+
+janela.mainloop()
+```
+
+ll
