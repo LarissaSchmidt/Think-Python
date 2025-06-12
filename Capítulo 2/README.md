@@ -108,7 +108,7 @@ while True:
         print('\nVocê precisa digitar um número válido.')
 ```
 
-```Se eu sair da minha casa às 6:52 e correr 1 quilômetro a um certo passo (8min15s por quilômetro), então 3 quilômetros a um passo mais rápido (7min12s por quilômetro) e 1 quilômetro no mesmo passo usado em primeiro lugar, que horas chego em casa para o café da manhã?```
+```3. Se eu sair da minha casa às 6:52 e correr 1 quilômetro a um certo passo (8min15s por quilômetro), então 3 quilômetros a um passo mais rápido (7min12s por quilômetro) e 1 quilômetro no mesmo passo usado em primeiro lugar, que horas chego em casa para o café da manhã?```
 
 
 Resolvi testar a criação de uma interface gráfica para que o usuário interaja diretamente em uma janela separada, e não no terminal. Importei a biblioteca gráfica ```tkinter``` e a apelidei de ```tk``` para facilitar o uso dos comandos ao longo do código. Criei a janela principal com ```janela = tk.Tk()```, nomeando-a com ```janela.title()```. Para mantê-la aberta e responsiva, utilizei o ```janela.mainloop()```.
@@ -297,4 +297,6 @@ botao.pack()
 janela.mainloop()
 ```
 
-ll
+Vamos adaptar isso que já criamos para algo com mais variáveis. 
+
+
