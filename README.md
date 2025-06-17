@@ -1,76 +1,98 @@
 # Think Python - How To Like a Computer Scientist
 <img src="https://howtolearnmachinelearning.com/wp-content/uploads/2020/11/Think_Python.png" width="400">
 
-**Glossário:**
-```
-int – número inteiro (ex: 1, 42, -7)
+# Glossário
 
-float – número decimal ou quebrado (ex: 3.14, -0.5)
+> **Capítulo 1:**
 
-str – string, sequência de caracteres ou texto (ex: 'olá', 'python')
+**int**: número inteiro (ex: 1, 42, -7)
 
-print – função que exibe algo na tela
+**float**: número decimal ou quebrado (ex: 3.14, -0.5)
 
-input – função que recebe uma entrada do usuário
+**str**: string, sequência de caracteres ou texto (ex: 'olá', 'python')
 
-bug – erro ou falha no código
+**print**: função que exibe algo na tela
 
-debugging – processo de encontrar e corrigir bugs
+**input**: função que recebe uma entrada do usuário
 
-operator – símbolo que realiza uma operação (ex: +, -, *, /)
+**bug**: erro ou falha no código
 
-expression – combinação de valores e operadores que Python pode avaliar (ex: 2 + 3)
+**debugging**: processo de encontrar e corrigir bugs
 
-statement – instrução completa que o Python executa (ex: print("oi"))
+**operator**: símbolo que realiza uma operação (ex: +, -, *, /)
 
-variable – nome que armazena um valor (ex: x = 5)
+**expression**: combinação de valores e operadores que Python pode avaliar (ex: 2 + 3)
 
-assignment – ação de atribuir um valor a uma variável (ex: x = 10)
+**statement**: instrução completa que o Python executa (ex: print("oi"))
 
-value – dado armazenado ou manipulado pelo programa (ex: 42, "texto")
+**variable**: nome que armazena um valor (ex: x = 5)
 
-type – tipo de dado (ex: int, float, str)
+**assignment**: ação de atribuir um valor a uma variável (ex: x = 10)
 
-syntax – conjunto de regras para escrever o código corretamente
+**value**: dado armazenado ou manipulado pelo programa (ex: 42, "texto")
 
-comment – texto no código ignorado pelo Python, usado para explicações (# isso é um comentário)
+**type**: tipo de dado (ex: int, float, str)
 
-function – bloco de código reutilizável que realiza uma tarefa (ex: print())
+**syntax**: conjunto de regras para escrever o código corretamente
 
-parameter – valor passado para uma função
+**comment**: texto no código ignorado pelo Python, usado para explicações (# isso é um comentário)
 
-return – valor que uma função devolve após executar
+**function**: bloco de código reutilizável que realiza uma tarefa (ex: print())
 
-prompt – mensagem exibida para o usuário durante a entrada de dados (ex: input('Digite seu nome: '))
+**parameter**: valor passado para uma função
 
-^ – operador bitwise XOR (exclusive or) que compara bits (não muito usado no começo, mas aparece)
-```
+**return**: valor que uma função devolve após executar
 
-**Glossário:**
-```
-Variável – nome usado para guardar um valor (como uma “caixinha”). Não pode começar com número, nem conter espaço, acento, ou símbolos especiais. Também não pode ter nomes que sejam palavras reservadas do Python (ex: if, while).
+**prompt**: mensagem exibida para o usuário durante a entrada de dados (ex: input('Digite seu nome: '))
 
-Atribuição – quando damos um valor a uma variável, usando o = (ex: x = 5).
+**^**: operador bitwise XOR (exclusive or) que compara bits (não muito usado no começo, mas aparece)
 
-Expressão – qualquer coisa que tenha um valor: pode ser um número, operação matemática, ou combinação (ex: 2 + 3, "oi" + " mundo").
+> **Capítulo 2:**
 
-Operador – símbolo que faz uma operação (ex: +, -, *, /).
+**Variável**: nome usado para guardar um valor (como uma “caixinha”). Não pode começar com número, nem conter espaço, acento, ou símbolos especiais. Também não pode ter nomes que sejam palavras reservadas do Python (ex: if, while).
 
-Concatenação de strings – juntar textos com o operador + (ex: "bom" + "dia" vira "bomdia").
+**Atribuição**: quando damos um valor a uma variável, usando o = (ex: x = 5).
 
-Repetição de strings – usar * com strings para repetir (ex: "la" * 3 vira "lalala").
+**Expressão**: qualquer coisa que tenha um valor: pode ser um número, operação matemática, ou combinação (ex: 2 + 3, "oi" + " mundo").
 
-Ordem dos parênteses – parênteses mudam a ordem dos cálculos, assim como na matemática (ex: (2 + 3) * 4 ≠ 2 + (3 * 4)).
+**Operador**: símbolo que faz uma operação (ex: +, -, *, /).
 
-Comentário (#) – texto ignorado pelo Python; usado para anotar ou explicar o código.
+**Concatenação de strings**: juntar textos com o operador + (ex: "bom" + "dia" vira "bomdia").
 
-Sintaxe – regras da linguagem Python. Se você quebrar essas regras (como esquecer : ou escrever algo fora do lugar), aparece um erro de sintaxe.
+**Repetição de strings**: usar * com strings para repetir (ex: "la" * 3 vira "lalala").
 
-Erro de tempo de execução (runtime error) – erro que acontece enquanto o programa está rodando. Exemplo: tentar dividir por zero.
+**Ordem dos parênteses**: parênteses mudam a ordem dos cálculos, assim como na matemática (ex: (2 + 3) * 4 ≠ 2 + (3 * 4)).
 
-Erro semântico (semantic error) – quando o programa roda sem erro, mas faz a coisa errada (a lógica está errada).
+**Comentário (#)**: texto ignorado pelo Python; usado para anotar ou explicar o código.
 
-Exception (exceção) – tipo especial de erro que pode ser tratado para evitar que o programa quebre. Exemplo: tentar converter texto em número e falhar.
-```
+**Sintaxe**: regras da linguagem Python. Se você quebrar essas regras (como esquecer : ou escrever algo fora do lugar), aparece um erro de sintaxe.
 
+**Erro de tempo de execução (runtime error)**: erro que acontece enquanto o programa está rodando. Exemplo: tentar dividir por zero.
 
+**Erro semântico (semantic error)**: quando o programa roda sem erro, mas faz a coisa errada (a lógica está errada).
+
+**Exception (exceção)**: tipo especial de erro que pode ser tratado para evitar que o programa quebre. Exemplo: tentar converter texto em número e falhar.
+
+> **Capítulo 3:**
+
+**import**: Comando usado para carregar módulos externos no código.
+
+**módulo**: Arquivo com código Python reutilizável (funções, variáveis, classes).
+
+**notação de ponto**: Forma de acessar elementos de um módulo usando ponto (modulo.funcao).
+
+**def**: Palavra-chave usada para definir uma função.
+
+**argumentos**: Valores passados para uma função quando ela é chamada.
+
+**function**: Bloco de código reutilizável que executa uma tarefa específica.
+
+**fluxo de execução**: Ordem em que as instruções do programa são executadas.
+
+**diagrama de pilha**: Representação visual dos frames (chamadas de função) durante a execução.
+
+**frame**: Registro na pilha contendo informações de uma chamada de função (como variáveis locais).
+
+**traceback**: Mensagem de erro que mostra a sequência de chamadas que levou a uma exceção.
+
+> **Capítulo 4:**
