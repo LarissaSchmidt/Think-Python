@@ -96,3 +96,18 @@
 **traceback**: Mensagem de erro que mostra a sequência de chamadas que levou a uma exceção.
 
 > **Capítulo 4:**
+
+**turtle**: Módulo gráfico do Python que permite controlar uma "tartaruga" que desenha na tela conforme se move.
+
+**pu**/**pd**: Métodos do turtle para levantar (pu, "pen up") ou abaixar (pd, "pen down") a caneta, controlando se o movimento deixa rastro.
+
+**fd**: Método que move a tartaruga para frente uma certa distância (em pixels).
+
+**bk**: Método que move a tartaruga para trás uma certa distância (em pixels).
+
+**lt**: Método que faz a tartaruga virar para a esquerda, em um ângulo especificado (em graus).
+
+**rt**: Método que faz a tartaruga virar para a direita, em um ângulo especificado (em graus).
+
+**for**: Estrutura de repetição usada para executar um bloco de código várias vezes, definida com ```for variável in range(n):```.
+
