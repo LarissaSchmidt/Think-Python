@@ -275,4 +275,175 @@ Aqui, observamos como funções podem ser tratadas como objetos em Python, sendo
 
 > **Exercício 3.3**
 
- 
+```1. Escreva uma função que desenhe uma grade como a seguinte:```
+
+![image](https://github.com/user-attachments/assets/d7dcb44c-1b67-425b-9b85-5845d7345235)
+
+Podemos montar um código simples seguindo o que aprendemos até agora, utilizando definição de funções e a repetição dessas.
+
+```ruby
+def grade():
+    def linha(): 
+        print ('+', '- - - - ', '+', '- - - - ', '+')
+    def coluna():
+        print ('|', ' ' * 8, '|', ' ' * 8, '|', ' ' * 8)
+    def mais(f):
+        f()
+        f()
+        f()
+        f()
+    linha()
+    mais(coluna)
+    linha()
+    mais(coluna)
+    linha()
+
+grade()
+```
+
+*Resultado*
+
+```
++ - - - -  + - - - -  +
+|          |          |
+|          |          |
+|          |          |
+|          |          |
++ - - - -  + - - - -  +
+|          |          |
+|          |          |
+|          |          |
+|          |          |
++ - - - -  + - - - -  +
+```
+
+```2. Escreva uma função que desenhe uma grade semelhante com quatro linhas e quatro colunas.```
+
+De maneira semelhante conseguimos fazer o mesmo exacerbando a quantidade de linhas e colunas que temos. 
+
+Definimos a função ```desenha_grade_2x2()```, que monta uma grade visual com duas linhas e duas colunas. Dentro dela, criamos ```def linha_horizontal()```, responsável por imprimir a parte superior de cada célula com o padrão ```+ - - - - - - - - -```. A multiplicação de ```- ``` por 9 em cada segmento garante que a linha horizontal fique larga o suficiente para manter a proporção visual com as linhas verticais.
+
+```ruby
+def desenha_grade_4x4():
+    def linha_horizontal():
+        print('+', '- ' * 9, '+', '- ' * 9, '+', '- ' * 9, '+', sep='')
+```
+
+Em seguida, definimos ```def linha_vertical()```, que imprime uma linha com barras verticais ```(|)``` e espaços entre elas. Usamos um laço ```for``` para repetir quatro vezes, simulando a altura da célula.
+
+```ruby
+    def linha_vertical():
+        for _ in range(4):
+            print('|', ' ' * 18, '|', ' ' * 18, '|', ' ' * 18, '|', sep='')
+```
+
+Definimos a função ```def colunas(f)```, que recebe outra função como argumento e a executa duas vezes. Aqui, ela será usada para repetir os blocos de linhas verticais entre as horizontais.
+
+```ruby
+    def colunas(f):
+        f()
+        f()
+```
+
+Organizamos então a execução da grade: começamos com uma linha horizontal, depois imprimimos as verticais duas vezes usando ```colunas(linha_vertical)```, e repetimos esse padrão para formar as duas linhas de células. Ao final, encerramos com uma última linha horizontal. Por fim, chamamos ```desenha_grade_4x4()``` para exibir o resultado no terminal.
+
+```ruby
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+
+desenha_grade_4x4()
+```
+
+No total temos o código:
+
+```ruby
+def desenha_grade_4x4():
+    def linha_horizontal():
+        print('+', '- ' * 9, '+', '- ' * 9, '+', '- ' * 9, '+', sep='')
+
+    def linha_vertical():
+        for _ in range(4):
+            print('|', ' ' * 18, '|', ' ' * 18, '|', ' ' * 18, '|', sep='')
+
+    def colunas(f):
+        f()
+        f()
+
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+    colunas(linha_vertical)
+    linha_horizontal()
+
+desenha_grade_4x4()
+```
+
+*Resultado*
+
+```
++- - - - - - - - - +- - - - - - - - - +- - - - - - - - - +
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
++- - - - - - - - - +- - - - - - - - - +- - - - - - - - - +
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
++- - - - - - - - - +- - - - - - - - - +- - - - - - - - - +
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
+|                  |                  |                  |
++- - - - - - - - - +- - - - - - - - - +- - - - - - - - - +
+```
+
+```3. Para otimizar isso resolvi reescrever o código anterior.```
+
+```ruby
+def repetir_duas_vezes(acao):
+    acao()
+    acao()
+
+def repetir_quatro_vezes(acao):
+    repetir_duas_vezes(acao)
+    repetir_duas_vezes(acao)
+
+def desenha_grade_4x4():
+    def desenha_linha_horizontal():
+        print('+', '- ' * 4, '+', '- ' * 4, '+', '- ' * 4, '+', '- ' * 4, '+', sep='')
+
+    def desenha_linha_vertical():
+        print('|', ' ' * 8, '|', ' ' * 8, '|', ' ' * 8, '|', ' ' * 8, '|', sep='')
+
+    def bloco_grade():
+        desenha_linha_horizontal()
+        repetir_quatro_vezes(desenha_linha_vertical)
+
+    repetir_quatro_vezes(bloco_grade)
+    desenha_linha_horizontal()
+
+desenha_grade_4x4()
+```
+
+A otimização do código da *grade 4x4* consistiu em tornar o código mais limpo, modular e reutilizável por meio da criação de funções auxiliares com nomes descritivos, como ```repetir_quatro_vezes```, ```desenha_linha_horizontal``` e ```desenha_linha_vertical```. Ao invés de repetir manualmente os mesmos comandos várias vezes, agrupamos o padrão de uma linha horizontal seguida por quatro verticais dentro da função ```bloco_grade```, que é chamada quatro vezes para formar as linhas da grade. Essa abordagem reduz repetições desnecessárias, melhora a legibilidade e segue o modelo funcional proposto nos exercícios anteriores, facilitando a manutenção e possíveis adaptações futuras.
