@@ -145,52 +145,134 @@ Justificador de Texto até a coluna 70 📏
 
 > **Exercício 3.2**
 
-Iniciamos
-
-
-
+Definimos ```def do_twice(f)``` e assim criamos uma função que recebe um objeto de função ```(f)``` e o chama duas vezes (com ```f()``` em duas linhas).
 
 ```ruby
-
+#3.2.1
+def do_twice(f):
+    f()
+    f()
 ```
 
+Em seguida, definimos ```def print_spam()```, que simplesmente imprime a palavra *spam*. 
 
-Definimos do_twice(f)
-Criamos uma função que recebe um objeto de função (f) e o chama duas vezes (com f() em duas linhas).
-Em seguida, definimos print_spam(), que simplesmente imprime a palavra "spam".
-Por fim, testamos o exemplo original chamando do_twice(print_spam), o que faz "spam" aparecer duas vezes na tela.
+```ruby
+def print_spam():
+    print('spam')
 
-Alteramos do_twice para do_twice_arg(f, value)
-Agora nossa função recebe dois parâmetros:
+do_twice(print_spam)
+```
 
-f: o objeto de função a ser chamado.
+Por fim, testamos o exemplo original chamando ```do_twice(print_spam)```, o que faz *spam* aparecer duas vezes na tela.
 
-value: o valor que queremos passar para f.
-
-Dentro do corpo, chamamos f(value) em duas linhas, garantindo que f receba value a cada execução.
-
-Copiamos a definição de print_twice(x)
-Essa função imprime o argumento x duas vezes. Ela será usada para demonstrar como passar valores através de do_twice_arg.
-
-Chamamos do_twice_arg(print_twice, 'spam')
-Aqui passamos print_twice como função e a string 'spam' como valor.
-
-Na primeira chamada, executa print_twice('spam'), que imprime:
-
-nginx
-Copiar código
+*Resultado*
+```
 spam
 spam
-Na segunda chamada, repete o mesmo, resultando em quatro linhas de "spam".
+```
 
-Definimos do_four(f, value)
-Para criar uma função que chame f(value) quatro vezes, reutilizamos do_twice_arg duas vezes dentro de do_four:
+Alteramos ```do_twice``` para ```do_twice_arg(f, value)```. Essa função agora recebe dois parâmetros:
 
-python
-Copiar código
-do_twice_arg(f, value)
-do_twice_arg(f, value)
-Assim, mantemos apenas duas linhas no corpo de do_four, mas geramos quatro chamadas.
+```f```: o objeto de função a ser chamado.
 
-Testamos do_four(print_twice, 'spam')
-Chamando essa função, obtemos oito linhas de "spam" (duas impressões de print_twice vezes quatro chamadas totais).
+```value```: o valor que queremos passar para f.
+
+```ruby
+#3.2.2 
+def do_twice_arg(f, value):
+    f(value)
+    f(value)
+```
+
+Chamamos ```f(value)``` em duas linhas, garantindo que ```f``` receba ```value``` a cada execução.
+
+Copiamos a definição de ```print_twice(x)```. Essa função imprime o argumento *x* duas vezes. Ela será usada para demonstrar como passar valores através de ```do_twice_arg```.
+
+```ruby
+#3.2.3 
+def print_twice(x):
+    print(x)
+    print(x)
+```
+
+Chamamos ```do_twice_arg(print_twice, 'mensagem')```. Aqui passamos ```print_twice``` como função e a string *mensagem* como valor.
+
+```ruby
+#3.2.4 
+do_twice_arg(print_twice, 'mensagem')
+```
+
+*Resultado*
+
+```
+mensagem
+mensagem
+mensagem
+mensagem
+```
+
+Definimos então ```do_four(f, value)```, para criar uma função que chame ```f(value)``` quatro vezes, reutilizamos ```do_twice_arg``` duas vezes dentro de ```do_four```. Assim, mantemos apenas duas linhas no corpo de ```do_four```, mas geramos quatro chamadas.
+
+```ruby
+#3.2.5 
+def do_four(f, value):
+    do_twice_arg(f, value)
+    do_twice_arg(f, value)
+
+do_four(print_twice, 'spam')
+```
+
+Testamos ```do_four(print_twice, 'spam')```. Chamando essa função, obtemos oito linhas de *spam* (duas impressões de ```print_twice``` vezes quatro chamadas totais).
+
+*Resultado*
+
+```
+spam
+spam
+spam
+spam
+spam
+spam
+spam
+spam
+```
+
+No total temos o código:
+
+```ruby
+#3.2.1 
+def do_twice(f):
+    f()
+    f()
+
+def print_spam():
+    print('spam')
+
+do_twice(print_spam)
+
+#3.2.2 
+def do_twice_arg(f, value):
+    f(value)
+    f(value)
+
+#3.2.3 
+def print_twice(x):
+    print(x)
+    print(x)
+
+#3.2.4 
+do_twice_arg(print_twice, 'mensagem')
+
+#3.2.5 
+def do_four(f, value):
+    do_twice_arg(f, value)
+    do_twice_arg(f, value)
+
+do_four(print_twice, 'spam')
+```
+
+Aqui, observamos como funções podem ser tratadas como objetos em Python, sendo passadas como argumentos e chamadas dentro de outras funções. Esses exemplos evidenciam a versatilidade da linguagem e mostram como estruturar o código de forma modular e reutilizável ao utilizar funções como parâmetros.
+
+> **Exercício 3.3**
+
+ 

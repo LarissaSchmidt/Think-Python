@@ -246,7 +246,7 @@ botao.pack()
 
 ![image](https://github.com/user-attachments/assets/f69a797d-8e0c-42b5-9225-5c786ef19361)
 
-Até agora temos esse código:
+No total temos esse código:
 
 ```ruby
 import tkinter as tk
@@ -296,7 +296,3 @@ botao.pack()
 
 janela.mainloop()
 ```
-
-Vamos adaptar isso que já criamos para algo com mais variáveis. 
-
-
